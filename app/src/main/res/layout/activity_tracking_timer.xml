@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/main_padding"
+    tools:context="com.example.amanda.howler.TrackingTimer">
+
+    <TextView
+        android:id="@+id/countdownTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:text="TextView"
+        android:textSize="@dimen/label_text_size"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="54dp" />
+
+    <TextView
+        android:id="@+id/hourTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:text="00"
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/colon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:layout_toEndOf="@+id/hourTextView"
+        android:layout_toRightOf="@+id/hourTextView"
+        android:text="hr : "
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/minTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:layout_toEndOf="@+id/colon1"
+        android:layout_toRightOf="@+id/colon1"
+        android:text="00"
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/colon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:layout_toEndOf="@+id/minTextView"
+        android:layout_toRightOf="@+id/minTextView"
+        android:text="min : "
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/secTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:layout_toEndOf="@+id/colon2"
+        android:layout_toRightOf="@+id/colon2"
+        android:text="00"
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/countdownTextView"
+        android:layout_toEndOf="@+id/secTextView"
+        android:layout_toRightOf="@+id/secTextView"
+        android:text="sec"
+        android:textSize="@dimen/label_text_size" />
+
+    <Button
+        android:id="@+id/addTimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hourTextView"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="Add Time" />
+
+    <Button
+        android:id="@+id/stopTrackingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addTimeButton"
+        android:layout_centerHorizontal="false"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="Stop Tracking" />
+
+</RelativeLayout>

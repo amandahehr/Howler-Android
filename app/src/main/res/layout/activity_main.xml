@@ -1,18 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/main_padding"
     tools:context="com.example.amanda.howler.MainActivity">
 
+
     <TextView
+        android:id="@+id/addContactsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/add_contacts"
+        android:textSize="@dimen/label_text_size" />
 
-</android.support.constraint.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/addContactsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+    <Spinner
+        android:id="@+id/contactListSpinner1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/addContactsLabel"
+        android:layout_alignParentTop="false"
+        android:layout_alignStart="@+id/addContactsLabel"
+        android:layout_below="@+id/addContactsLabel"
+        android:layout_toLeftOf="@+id/addContactsButton" />
+
+    <Spinner
+        android:id="@+id/contactListSpinner2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/contactListSpinner1"
+        android:layout_alignRight="@+id/contactListSpinner1"
+        android:layout_below="@+id/contactListSpinner1"
+        android:entries="@array/contacts_array"
+        android:prompt="@string/contact_prompt" />
+
+    <TextView
+        android:id="@+id/startLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/contactListSpinner2"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="@string/start_location"
+        android:textSize="@dimen/label_text_size" />
+
+    <EditText
+        android:id="@+id/startLocationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/contactListSpinner1"
+        android:layout_alignStart="@+id/contactListSpinner1"
+        android:layout_below="@+id/startLocationLabel"
+        android:ems="10"
+        android:hint="@string/enter_start_location"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/endLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startLocationLabel"
+        android:layout_alignStart="@+id/startLocationLabel"
+        android:layout_below="@+id/startLocationEditText"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="@string/end_location_label"
+        android:textSize="@dimen/label_text_size" />
+
+    <EditText
+        android:id="@+id/endLocationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startLocationEditText"
+        android:layout_alignStart="@+id/startLocationEditText"
+        android:layout_below="@+id/endLocationLabel"
+        android:ems="10"
+        android:hint="@string/enter_end_location"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/timerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/endLocationLabel"
+        android:layout_alignStart="@+id/endLocationLabel"
+        android:layout_below="@+id/endLocationEditText"
+        android:layout_marginTop="@dimen/main_padding"
+        android:text="@string/time_label"
+        android:textSize="@dimen/label_text_size" />
+
+    <EditText
+        android:id="@+id/hourEditText"
+        android:layout_width="@dimen/timer_input_width"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/endLocationEditText"
+        android:layout_alignStart="@+id/endLocationEditText"
+        android:layout_below="@+id/timerLabel"
+        android:ems="10"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/hourLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hourEditText"
+        android:layout_alignTop="@+id/hourEditText"
+        android:layout_below="@+id/timerLabel"
+        android:layout_toRightOf="@+id/hourEditText"
+        android:gravity="center_vertical"
+        android:text="@string/hours"
+        android:textAlignment="center"
+        android:textSize="@dimen/label_text_size" />
+
+    <TextView
+        android:id="@+id/colon1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hourEditText"
+        android:layout_alignTop="@+id/hourEditText"
+        android:layout_below="@+id/timerLabel"
+        android:layout_marginLeft="@dimen/main_padding"
+        android:layout_marginRight="@dimen/main_padding"
+        android:layout_toEndOf="@+id/hourLabel"
+        android:layout_toRightOf="@+id/hourLabel"
+        android:gravity="center_vertical"
+        android:text="@string/colon"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/label_text_size" />
+
+    <EditText
+        android:id="@+id/minuteEditText"
+        android:layout_width="@dimen/timer_input_width"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timerLabel"
+        android:layout_toRightOf="@+id/colon1"
+        android:ems="10"
+        android:hint="@string/zero"
+        android:inputType="number"
+        android:maxLength="2"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/hourEditText"
+        android:layout_alignTop="@+id/hourEditText"
+        android:layout_below="@+id/timerLabel"
+        android:layout_toEndOf="@+id/minuteEditText"
+        android:layout_toRightOf="@+id/minuteEditText"
+        android:gravity="center_vertical"
+        android:text="@string/minutes"
+        android:textSize="@dimen/label_text_size" />
+
+    <Button
+        android:id="@+id/startTrackingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/start_tracking"
+        android:textSize="24sp" />
+
+</RelativeLayout>

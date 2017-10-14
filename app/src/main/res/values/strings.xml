@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Howler</string>
+    <string name="add_contacts">Emergency Contacts:</string>
+    <string name="start_location">Start Location:</string>
+    <string name="enter_start_location">enter start location</string>
+    <string name="end_location_label">End Location:</string>
+    <string name="enter_end_location">enter end location</string>
+    <string name="time_label">Estimated Travel Time:</string>
+    <string name="colon">:</string>
+    <string name="zero">00</string>
+    <string name="hours">hrs</string>
+    <string name="minutes">mins</string>
+    <string name="contact_prompt">Select a contact</string>
+    <string name="start_tracking">Start Tracking!</string>
+    <string-array name="contacts_array">
+        <item>Mom</item>
+        <item>Dad</item>
+        <item>Sarah</item>
+        <item>Joe</item>
+    </string-array>
 </resources>
