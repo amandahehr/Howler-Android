@@ -16,7 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TrackingTimer"></activity>
+        <activity android:name=".TrackingTimer" />
+        <activity android:name=".TrackingFinished" />
+        <activity android:name=".ContactList"
+            android:label="Contact List"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".AddContact"
+            android:label="Add a Contact"
+            android:parentActivityName=".ContactList"/>
+        <activity android:name=".ViewContact"
+            android:label="View Contact"
+            android:parentActivityName=".ContactList">
+        </activity>
     </application>
 
 </manifest>

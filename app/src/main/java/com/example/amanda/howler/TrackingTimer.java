@@ -1,11 +1,14 @@
 package com.example.amanda.howler;
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+
 
 public class TrackingTimer extends AppCompatActivity implements View.OnClickListener {
     public int counter;
@@ -94,7 +97,9 @@ public class TrackingTimer extends AppCompatActivity implements View.OnClickList
         }
         @Override
         public void onFinish(){
-            countdownVal.setText("FINISH!!");
+            Intent i = new Intent(getApplicationContext(), TrackingFinished.class);
+            i.putExtra("FINISH_REASON", 0); //0: timer ran out
+            startActivity(i);
         }
     }
 
@@ -105,5 +110,8 @@ public class TrackingTimer extends AppCompatActivity implements View.OnClickList
 
     public void stopTracking(){
         theTimer.cancel();
+        Intent i = new Intent(getApplicationContext(), TrackingFinished.class);
+        i.putExtra("FINISH_REASON", 1); //1: user stopped timer
+        startActivity(i);
     }
 }
