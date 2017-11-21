@@ -2,32 +2,47 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amanda.howler">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
+        android:name=".Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".TrackingTimer"></activity>
+        <activity android:name=".TrackingFinished" />
+        <activity
+            android:name=".ContactList"
+            android:label="Contact List"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AddContact"
+            android:label="Add a Contact"
+            android:parentActivityName=".ContactList" />
+        <activity
+            android:name=".ViewContact"
+            android:label="View Contact"
+            android:parentActivityName=".ContactList"></activity>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TrackingTimer" />
-        <activity android:name=".TrackingFinished" />
-        <activity android:name=".ContactList"
-            android:label="Contact List"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AddContact"
-            android:label="Add a Contact"
-            android:parentActivityName=".ContactList"/>
-        <activity android:name=".ViewContact"
-            android:label="View Contact"
-            android:parentActivityName=".ContactList">
-        </activity>
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>

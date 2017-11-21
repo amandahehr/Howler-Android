@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/main_padding"
+    tools:context="com.example.amanda.howler.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="Howler Logo"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
+
+
+    <LinearLayout
+        android:id="@+id/signInInputsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/signInUserEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/signInPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signInUserEditText"
+            android:layout_centerHorizontal="true"
+            android:ems="10"
+            android:hint="@string/sign_in_password"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/signInButtonsRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/signInInputsLinearLayout"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/signInButton"
+            android:layout_width="@dimen/sign_in_button_width"
+            android:layout_height="@dimen/sign_in_button_height"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/main_padding"
+            android:background="@drawable/button"
+            android:text="@string/sign_in_button_text"
+            android:textColor="@android:color/background_light"
+            android:textColorLink="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/signUpModeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/signInButton"
+            android:layout_margin="@dimen/main_padding"
+            android:background="@drawable/button"
+            android:padding="5dp"
+            android:text="@string/sign_in_new_account"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/forgotPasswordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentStart="false"
+            android:layout_below="@+id/signInButton"
+            android:layout_margin="@dimen/main_padding"
+            android:layout_toLeftOf="@+id/signUpModeButton"
+            android:background="@drawable/button"
+            android:padding="5dp"
+            android:text="@string/sign_in_forgot_password"
+            android:textColor="@android:color/background_light"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/signUpScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageView"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/signUpInputsLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/signUpUsernameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="@string/username_text" />
+
+                <EditText
+                    android:id="@+id/signUpUserEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/username_text"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/signUpEmailTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="@string/email_address_text" />
+
+                <EditText
+                    android:id="@+id/signUpEmailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/email_address_text"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/signUpFullNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="Full name" />
+
+                <EditText
+                    android:id="@+id/signUpFullNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Full name"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/signUpPhoneNumberTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="Phone number (5551234567)" />
+
+                <EditText
+                    android:id="@+id/signUpPhoneEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Phone number (5551234567)"
+                    android:inputType="phone" />
+
+                <TextView
+                    android:id="@+id/signUpPasswordTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="@string/sign_in_password" />
+
+                <EditText
+                    android:id="@+id/signUpFirstPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/sign_in_password"
+                    android:inputType="textPassword" />
+
+                <TextView
+                    android:id="@+id/signUpSecondPasswordTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:height="0dp"
+                    android:text="Repeat password" />
+
+                <EditText
+                    android:id="@+id/signUpSecondPasswordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Repeat Password"
+                    android:inputType="textPassword" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/signUpButtonsRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/signUpInputsLinearLayout"
+                android:visibility="visible">
+
+                <Button
+                    android:id="@+id/signUpButton"
+                    android:layout_width="@dimen/sign_in_button_width"
+                    android:layout_height="@dimen/sign_in_button_height"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/sign_in_button_margin"
+                    android:background="@drawable/button"
+                    android:text="Create Account"
+                    android:textColor="@android:color/background_light" />
+
+                <Button
+                    android:id="@+id/signInModeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/signUpButton"
+                    android:layout_margin="@dimen/sign_in_button_margin"
+                    android:background="@drawable/button"
+                    android:padding="10dp"
+                    android:text="Already have an account?"
+                    android:textColor="@android:color/background_light" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/confirmInputsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/confirmCodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/sign_up_confirm_code"
+            android:inputType="number"
+            android:maxLength="6" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/confirmButtonsRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/confirmInputsLinearLayout"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="@dimen/sign_in_button_width"
+            android:layout_height="@dimen/sign_in_button_height"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/sign_in_button_margin"
+            android:background="@drawable/button"
+            android:text="@string/sign_up_confirm_text"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/resendConfirmationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/confirmButton"
+            android:layout_margin="@dimen/sign_in_button_margin"
+            android:background="@drawable/button"
+            android:padding="10dp"
+            android:text="Resend confirmation"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:id="@+id/signInModeButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/confirmButton"
+            android:layout_margin="@dimen/sign_in_button_margin"
+            android:layout_toRightOf="@+id/resendConfirmationButton"
+            android:background="@drawable/button"
+            android:padding="10dp"
+            android:text="Already have an account?"
+            android:textColor="@android:color/background_light" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/forgotPasswordInputsLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:orientation="vertical"
+        android:visibility="invisible">
+
+        <EditText
+            android:id="@+id/forgotCodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/sign_up_confirm_code"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/forgotPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="New Password"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/forgotPasswordButtonsRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgotPasswordInputsLinearLayout"
+        android:visibility="invisible">
+
+        <Button
+            android:id="@+id/resetPasswordButton"
+            android:layout_width="@dimen/sign_in_button_width"
+            android:layout_height="@dimen/sign_in_button_height"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/sign_in_button_margin"
+            android:background="@drawable/button"
+            android:text="Reset Password"
+            android:textColor="@color/ic_launcher_background" />
+
+        <Button
+            android:id="@+id/signInModeButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button"
+            android:text="Sign In"
+            android:textColor="@color/ic_launcher_background" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -18,41 +18,48 @@
         android:text="@string/add_contacts"
         android:textSize="@dimen/label_text_size" />
 
-    <ImageButton
-        android:id="@+id/addContactsButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/addContactLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="false"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <Spinner
-        android:id="@+id/contactListSpinner1"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/addContactsLabel"
-        android:layout_alignParentTop="false"
-        android:layout_alignStart="@+id/addContactsLabel"
         android:layout_below="@+id/addContactsLabel"
-        android:layout_toLeftOf="@+id/addContactsButton" />
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/contactListSpinner2"
+        <TextView
+            android:id="@+id/emergencyContactSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_below="@+id/addContactsLabel"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/contact_prompt"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/addContactsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/addContactsLabel"
+            android:layout_toRightOf="@+id/addContactsLabel"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/underline"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/contactListSpinner1"
-        android:layout_alignRight="@+id/contactListSpinner1"
-        android:layout_below="@+id/contactListSpinner1"
-        android:entries="@array/contacts_array"
-        android:prompt="@string/contact_prompt" />
+        android:layout_height="1dp"
+        android:layout_below="@+id/addContactLayout"
+        android:layout_weight="1"
+        android:background="@color/colorAccent" />
 
     <TextView
         android:id="@+id/startLocationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/contactListSpinner2"
+        android:layout_below="@+id/addContactLayout"
         android:layout_marginTop="@dimen/main_padding"
         android:text="@string/start_location"
         android:textSize="@dimen/label_text_size" />
@@ -61,8 +68,8 @@
         android:id="@+id/startLocationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/contactListSpinner1"
-        android:layout_alignStart="@+id/contactListSpinner1"
+        android:layout_alignLeft="@+id/addContactLayout"
+        android:layout_alignStart="@+id/addContactLayout"
         android:layout_below="@+id/startLocationLabel"
         android:ems="10"
         android:hint="@string/enter_start_location"
@@ -174,7 +181,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:shadowColor="@android:color/background_dark"
         android:text="@string/start_tracking"
+        android:textColor="@android:color/background_light"
         android:textSize="24sp" />
 
 </RelativeLayout>
