@@ -155,7 +155,7 @@ public class TrackingFinished extends AppCompatActivity implements View.OnClickL
     }
 
     public static void sendSMS() {
-        AWSCredentials mAwsCredentials = new BasicAWSCredentials(" AKIAIEYJRLAVYK5TD5LQ", "JBFxak12+8SLRzocdiWqxqVl9u7OwV2u6qDCITrD");
+        AWSCredentials mAwsCredentials = new BasicAWSCredentials("########", "#######");
         AmazonSNSClient snsClient = new AmazonSNSClient(mAwsCredentials);
         String message = SMSMessage;
         String phoneNumber = "+17788887924";
