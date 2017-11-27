@@ -3,4 +3,9 @@
     <color name="colorPrimary">#c24546</color>
     <color name="colorPrimaryDark">#9c3738</color>
     <color name="colorAccent">#c24546</color>
+    <color name="howler_grey">#3d3945</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="white_hint">#8cffffff</color>
+    <color name="howler_grey_transparent">#e73d3945</color>
+    <color name="howler_blue">#74acbf</color>
 </resources>

@@ -1,34 +1,30 @@
-package com.example.amanda.howler;
+package com.howlersafe.howler;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.amanda.howler.database.Contact;
-import com.example.amanda.howler.database.DatabaseHelper;
-
+import com.howlersafe.howler.R;
+import com.howlersafe.howler.database.Contact;
+import com.howlersafe.howler.database.DatabaseHelper;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactList extends AppCompatActivity implements View.OnClickListener{
 
+    //Widget declarations
     public FloatingActionButton addNewContact;
     public ListView contactList;
+    //Variable declarations
     public DatabaseHelper db;
     Intent i;
-
-    //LIST OF ARRAY STRINGS WHICH WILL SERVE AS LIST ITEMS
+    //for adapter
     ArrayList<String> listItems=new ArrayList<String>();
-    //DEFINING A STRING ADAPTER WHICH WILL HANDLE THE DATA OF THE LISTVIEW
     ArrayAdapter<String> adapter;
 
     @Override
@@ -45,16 +41,10 @@ public class ContactList extends AppCompatActivity implements View.OnClickListen
         contactList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                 String s = contactList.getItemAtPosition(i).toString();
-
                 Intent j = new Intent(getApplicationContext(), ViewContact.class);
                 j.putExtra("CONTACT_SELECTED", s);
                 startActivity(j);
-
-
-//                Toast.makeText(activity.getApplicationContext(), s, Toast.LENGTH_LONG).show();
-//                adapter.dismiss(); // If you want to close the adapter
             }
         });
 
@@ -62,7 +52,7 @@ public class ContactList extends AppCompatActivity implements View.OnClickListen
         db = new DatabaseHelper(this);
 
         //List adapter
-        adapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems);
+        adapter=new ArrayAdapter<String>(this, R.layout.image_row_layout, R.id.Itemname, listItems);
         contactList.setAdapter(adapter);
 
         List<Contact> contacts = db.getAllContacts();
@@ -80,4 +70,10 @@ public class ContactList extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+    }
+
 }

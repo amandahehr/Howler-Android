@@ -1,4 +1,4 @@
-package com.example.amanda.howler.database;
+package com.howlersafe.howler.database;
 
 public class Contact {
 
@@ -35,7 +35,7 @@ public class Contact {
 
     // getting name
     public String getName(){
-        return this._name;
+        return (this._name);
     }
 
     // setting name

@@ -4,27 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/howler_grey"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.TrackingFinished">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.TrackingFinished">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tracking Finished"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_centerVertical="true">
 
-    <TextView
-        android:id="@+id/finishedReasonTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:text="You stopped the timer/contacts have been notified" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/logo2"
+            android:contentDescription="@string/logo" />
 
-    <Button
-        android:id="@+id/returnFromTimerFinishButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Return" />
+        <TextView
+            android:id="@+id/finishedReasonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView5"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
 </RelativeLayout>

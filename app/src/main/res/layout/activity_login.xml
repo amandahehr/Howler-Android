@@ -4,46 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/howler_grey"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.LoginActivity">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.LoginActivity">
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/leftScrollArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="Howler Logo"
-        app:srcCompat="@mipmap/ic_launcher_foreground" />
+        android:layout_centerHorizontal="false"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="85dp"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_arrow_left" />
 
+    <ImageView
+        android:id="@+id/rightScrollArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="85dp"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_arrow_right" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/signInInputsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_marginTop="190dp"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/signInUserEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageView"
-            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/ic_launcher_background"
             android:ems="10"
-            android:hint="Username"
-            android:inputType="textPersonName" />
+            android:hint="@string/username"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@color/white_hint" />
 
         <EditText
             android:id="@+id/signInPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/signInUserEditText"
-            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/ic_launcher_background"
             android:ems="10"
             android:hint="@string/sign_in_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@color/white_hint" />
     </LinearLayout>
 
     <RelativeLayout
@@ -51,57 +72,63 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/signInInputsLinearLayout"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <Button
             android:id="@+id/signInButton"
-            android:layout_width="@dimen/sign_in_button_width"
-            android:layout_height="@dimen/sign_in_button_height"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/main_padding"
-            android:background="@drawable/button"
-            android:text="@string/sign_in_button_text"
+            android:background="@drawable/button_blue"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="@string/log_in"
+            android:textAllCaps="false"
             android:textColor="@android:color/background_light"
-            android:textColorLink="@android:color/background_light" />
+            android:textColorLink="@android:color/background_light"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/signUpModeButton"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_below="@+id/signInButton"
-            android:layout_margin="@dimen/main_padding"
-            android:background="@drawable/button"
-            android:padding="5dp"
-            android:text="@string/sign_in_new_account"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/forgotPasswordButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="false"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="false"
-            android:layout_alignParentStart="false"
-            android:layout_below="@+id/signInButton"
-            android:layout_margin="@dimen/main_padding"
-            android:layout_toLeftOf="@+id/signUpModeButton"
-            android:background="@drawable/button"
-            android:padding="5dp"
-            android:text="@string/sign_in_forgot_password"
-            android:textColor="@android:color/background_light"
-            android:textSize="12sp" />
+            <Button
+                android:id="@+id/forgotPasswordButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/main_padding"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:text="@string/forgot_password"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/signUpModeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/main_padding"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:padding="5dp"
+                android:text="@string/create_new_account"
+                android:textAllCaps="false"
+                android:textColor="@android:color/background_light"
+                android:textSize="14sp" />
+        </LinearLayout>
+
     </RelativeLayout>
 
     <ScrollView
         android:id="@+id/signUpScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/imageView"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,90 +147,126 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="@string/username_text" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/username_text"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpUserEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
                     android:hint="@string/username_text"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <TextView
                     android:id="@+id/signUpEmailTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="@string/email_address_text" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/email_address_text"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpEmailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
                     android:hint="@string/email_address_text"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <TextView
                     android:id="@+id/signUpFullNameTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="Full name" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/full_name"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpFullNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
-                    android:hint="Full name"
-                    android:inputType="textPersonName" />
+                    android:hint="@string/full_name"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <TextView
                     android:id="@+id/signUpPhoneNumberTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="Phone number (5551234567)" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/phone_number_5551234567"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpPhoneEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
-                    android:hint="Phone number (5551234567)"
-                    android:inputType="phone" />
+                    android:hint="@string/phone_number_5551234567"
+                    android:inputType="phone"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <TextView
                     android:id="@+id/signUpPasswordTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="@string/sign_in_password" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/sign_in_password"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpFirstPasswordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
                     android:hint="@string/sign_in_password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <TextView
                     android:id="@+id/signUpSecondPasswordTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:height="0dp"
-                    android:text="Repeat password" />
+                    android:backgroundTint="@color/ic_launcher_background"
+                    android:text="@string/repeat_password"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
                 <EditText
                     android:id="@+id/signUpSecondPasswordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/ic_launcher_background"
                     android:ems="10"
-                    android:hint="Repeat Password"
-                    android:inputType="textPassword" />
+                    android:hint="@string/repeat_password"
+                    android:inputType="textPassword"
+                    android:textColor="@color/ic_launcher_background"
+                    android:textColorHint="@color/white_hint" />
 
             </LinearLayout>
 
@@ -211,7 +274,6 @@
                 android:id="@+id/signUpButtonsRelativeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/signUpInputsLinearLayout"
                 android:visibility="visible">
 
                 <Button
@@ -221,7 +283,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_margin="@dimen/sign_in_button_margin"
                     android:background="@drawable/button"
-                    android:text="Create Account"
+                    android:text="@string/create_account"
                     android:textColor="@android:color/background_light" />
 
                 <Button
@@ -229,12 +291,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
                     android:layout_below="@+id/signUpButton"
                     android:layout_margin="@dimen/sign_in_button_margin"
-                    android:background="@drawable/button"
+                    android:background="@color/transparent"
                     android:padding="10dp"
-                    android:text="Already have an account?"
+                    android:text="@string/already_have_an_account"
                     android:textColor="@android:color/background_light" />
             </RelativeLayout>
         </LinearLayout>
@@ -244,18 +305,21 @@
         android:id="@+id/confirmInputsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/confirmCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/ic_launcher_background"
             android:ems="10"
             android:hint="@string/sign_up_confirm_code"
             android:inputType="number"
-            android:maxLength="6" />
+            android:maxLength="6"
+            android:textColor="@color/ic_launcher_background"
+            android:textColorHint="@color/white_hint" />
     </LinearLayout>
 
     <RelativeLayout
@@ -263,7 +327,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/confirmInputsLinearLayout"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/confirmButton"
@@ -271,7 +335,7 @@
             android:layout_height="@dimen/sign_in_button_height"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/sign_in_button_margin"
-            android:background="@drawable/button"
+            android:background="@drawable/button_blue"
             android:text="@string/sign_up_confirm_text"
             android:textColor="@android:color/background_light" />
 
@@ -283,19 +347,19 @@
             android:layout_margin="@dimen/sign_in_button_margin"
             android:background="@drawable/button"
             android:padding="10dp"
-            android:text="Resend confirmation"
+            android:text="@string/resend_confirmation"
             android:textColor="@android:color/background_light" />
 
         <Button
             android:id="@+id/signInModeButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/confirmButton"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/resendConfirmationButton"
             android:layout_margin="@dimen/sign_in_button_margin"
-            android:layout_toRightOf="@+id/resendConfirmationButton"
-            android:background="@drawable/button"
+            android:background="@color/transparent"
             android:padding="10dp"
-            android:text="Already have an account?"
+            android:text="@string/already_have_an_account"
             android:textColor="@android:color/background_light" />
     </RelativeLayout>
 
@@ -303,25 +367,30 @@
         android:id="@+id/forgotPasswordInputsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/forgotCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/ic_launcher_background"
             android:ems="10"
             android:hint="@string/sign_up_confirm_code"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="@color/ic_launcher_background"
+            android:textColorHint="@color/white_hint" />
 
         <EditText
             android:id="@+id/forgotPasswordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/ic_launcher_background"
             android:ems="10"
-            android:hint="New Password"
-            android:inputType="textPassword" />
+            android:hint="@string/new_password"
+            android:inputType="textPassword"
+            android:textColor="@color/ic_launcher_background"
+            android:textColorHint="@color/white_hint" />
     </LinearLayout>
 
     <RelativeLayout
@@ -329,7 +398,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgotPasswordInputsLinearLayout"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/resetPasswordButton"
@@ -337,8 +406,8 @@
             android:layout_height="@dimen/sign_in_button_height"
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/sign_in_button_margin"
-            android:background="@drawable/button"
-            android:text="Reset Password"
+            android:background="@drawable/button_blue"
+            android:text="@string/reset_password"
             android:textColor="@color/ic_launcher_background" />
 
         <Button
@@ -347,9 +416,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:background="@drawable/button"
-            android:text="Sign In"
+            android:text="@string/sign_in"
             android:textColor="@color/ic_launcher_background" />
     </RelativeLayout>
 

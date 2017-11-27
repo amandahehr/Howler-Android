@@ -4,94 +4,134 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@color/howler_grey"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.TrackingTimer">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.TrackingTimer">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="false"
-        android:layout_centerInParent="false"
-        android:text="Sending SMS in:"
-        android:textSize="@dimen/label_text_size"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="54dp" />
+        android:layout_centerVertical="true">
 
-    <TextView
-        android:id="@+id/hourTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:text="00"
-        android:textSize="@dimen/label_text_size" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/logo2"
+            android:contentDescription="@string/logo" />
 
-    <TextView
-        android:id="@+id/colon1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/hourTextView"
-        android:layout_toRightOf="@+id/hourTextView"
-        android:text="hr : "
-        android:textSize="@dimen/label_text_size" />
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView5"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="false"
+            android:text="@string/sending_text_message_in"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="@dimen/label_text_size"
+            tools:layout_editor_absoluteX="141dp"
+            tools:layout_editor_absoluteY="54dp" />
 
-    <TextView
-        android:id="@+id/minTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/colon1"
-        android:layout_toRightOf="@+id/colon1"
-        android:text="00"
-        android:textSize="@dimen/label_text_size" />
+        <RelativeLayout
+            android:id="@+id/timerRL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTextView"
+            android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/colon2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/minTextView"
-        android:layout_toRightOf="@+id/minTextView"
-        android:text="min : "
-        android:textSize="@dimen/label_text_size" />
+            <TextView
+                android:id="@+id/hourEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_00"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="34sp" />
 
-    <TextView
-        android:id="@+id/secTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/colon2"
-        android:layout_toRightOf="@+id/colon2"
-        android:text="00"
-        android:textSize="@dimen/label_text_size" />
+            <TextView
+                android:id="@+id/colon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/hourEditText"
+                android:text="@string/hr"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/titleTextView"
-        android:layout_toEndOf="@+id/secTextView"
-        android:layout_toRightOf="@+id/secTextView"
-        android:text="sec"
-        android:textSize="@dimen/label_text_size" />
+            <TextView
+                android:id="@+id/minTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/colon1"
+                android:text="@string/_00"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="34sp" />
 
-    <Button
-        android:id="@+id/addTimeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/hourTextView"
-        android:layout_centerHorizontal="false"
-        android:layout_marginTop="@dimen/main_padding"
-        android:text="Add Time" />
+            <TextView
+                android:id="@+id/colon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/minTextView"
+                android:text="@string/min"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="30sp" />
 
-    <Button
-        android:id="@+id/stopTrackingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/addTimeButton"
-        android:layout_centerHorizontal="false"
-        android:layout_marginTop="@dimen/main_padding"
-        android:text="Stop Tracking" />
+            <TextView
+                android:id="@+id/secTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/colon2"
+                android:text="@string/_00"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/secTextView"
+                android:text="@string/sec"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="30sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/timerRL"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addTimeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/add_time"
+                android:textAllCaps="false"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/stopTrackingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button"
+                android:text="@string/stop_timer"
+                android:textAllCaps="false"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

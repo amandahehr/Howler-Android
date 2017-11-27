@@ -1,21 +1,19 @@
-package com.example.amanda.howler;
+package com.howlersafe.howler;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.amazonaws.mobile.auth.core.DefaultSignInResultHandler;
 import com.amazonaws.mobile.auth.core.IdentityProvider;
-import com.amazonaws.mobile.auth.core.StartupAuthErrorDetails;
-import com.amazonaws.mobile.auth.core.signin.AuthException;
 import com.amazonaws.mobile.auth.ui.AuthUIConfiguration;
 import com.amazonaws.mobile.auth.ui.SignInActivity;
 import com.amazonaws.mobile.auth.core.IdentityManager;
 import com.amazonaws.mobile.auth.core.StartupAuthResultHandler;
 import com.amazonaws.mobile.auth.core.StartupAuthResult;
+import com.howlersafe.howler.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -39,9 +37,9 @@ public class SplashActivity extends AppCompatActivity {
 
                             // If the user was  signed in previously with a provider,
                             // indicate that to them with a toast.
-                            Toast.makeText(
-                                    SplashActivity.this, String.format("Signed in with %s",
-                                            provider.getDisplayName()), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(
+//                                    SplashActivity.this, String.format("Signed in with %s",
+//                                            provider.getDisplayName()), Toast.LENGTH_LONG).show();
                             goMain(SplashActivity.this);
                             return;
 

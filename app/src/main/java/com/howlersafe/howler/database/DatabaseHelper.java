@@ -1,4 +1,4 @@
-package com.example.amanda.howler.database;
+package com.howlersafe.howler.database;
 
 import android.content.ContentValues;
 import android.content.Context;

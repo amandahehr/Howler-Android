@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/howler_grey"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.com.howlersafe.howler.AddContact">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.EditContact">
 
     <LinearLayout
         android:id="@+id/personInfo"
@@ -19,7 +19,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.2"
-            android:contentDescription="@string/contact_icon"
             app:srcCompat="@drawable/ic_contact" />
 
         <LinearLayout
@@ -28,15 +27,6 @@
             android:layout_marginStart="16dp"
             android:layout_weight="1"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/contactNameTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/ic_launcher_background"
-                android:text="@string/name"
-                android:textColor="@color/ic_launcher_background"
-                android:textColorHint="@color/ic_launcher_background" />
 
             <EditText
                 android:id="@+id/firstNameEditText"
@@ -48,16 +38,6 @@
                 android:inputType="textPersonName"
                 android:textColor="@color/ic_launcher_background"
                 android:textColorHint="@color/white_hint" />
-
-            <TextView
-                android:id="@+id/contactSurnameTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:backgroundTint="@color/ic_launcher_background"
-                android:text="@string/surname"
-                android:textColor="@color/ic_launcher_background"
-                android:textColorHint="@color/ic_launcher_background" />
 
             <EditText
                 android:id="@+id/lastNameEditText"
@@ -85,8 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.005"
-            android:contentDescription="@string/phone_icon"
-            app:srcCompat="@drawable/ic_local_phone_white_24dp" />
+            app:srcCompat="@drawable/ic_local_phone_white_24dp"
+            android:contentDescription="@string/contact_icon" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,7 +86,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -144,7 +124,17 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/contactInfo"
         android:layout_marginTop="50dp"
-        android:clickable="true"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_save_white_24dp" android:focusable="true" />
+        app:srcCompat="@drawable/ic_save_white_24dp" />
+
+    <Button
+        android:id="@+id/deleteContactButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactInfo"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button"
+        android:padding="10dp"
+        android:text="@string/delete_contact"
+        android:textColor="@color/ic_launcher_background" />
 </RelativeLayout>

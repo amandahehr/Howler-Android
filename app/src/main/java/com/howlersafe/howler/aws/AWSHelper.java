@@ -1,33 +1,34 @@
-package com.example.amanda.howler.aws;
+package com.howlersafe.howler.aws;
 
-import android.util.Log;
 import com.amazonaws.mobile.auth.core.IdentityManager;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserAttributes;
-import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
-import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GetDetailsHandler;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler;
 import com.amazonaws.ClientConfiguration;
-
-
+import org.json.JSONException;
+import org.json.JSONObject;
 import static com.amazonaws.regions.Regions.US_EAST_1;
-import static com.example.amanda.howler.Application.context;
+import static com.howlersafe.howler.Application.context;
 
 public class AWSHelper {
 
     private IdentityManager mIdentityManager;
-    public static String fullName = " ";
+    public String KEY_1;
+    public String KEY_2;
 
 
+    public AWSHelper() {
+        mIdentityManager = IdentityManager.getDefaultIdentityManager();
+        JSONObject mJSONObject = mIdentityManager.getConfiguration().optJsonObject("SNSPermissions");
+        try {
+            KEY_1 = mJSONObject.getString("key1");
+            KEY_2 = mJSONObject.getString("key2");
 
-//    public AWSHelper(LoginActivity loginActivity) {
-//        mIdentityManager = IdentityManager.getDefaultIdentityManager();
-//    }
-//
-//    public IdentityManager getIdentityManager() {
-//        return mIdentityManager;
-//    }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public static CognitoUserPool getUserPool() {
@@ -50,7 +51,5 @@ public class AWSHelper {
     public static CognitoUser getCognitoUser() {
         return getUserPool().getCurrentUser();
     }
-
-
 
 }

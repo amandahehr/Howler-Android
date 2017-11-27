@@ -1,15 +1,21 @@
-package com.example.amanda.howler;
+package com.howlersafe.howler;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -36,16 +42,20 @@ import com.amazonaws.services.cognitoidentityprovider.model.NotAuthorizedExcepti
 import com.amazonaws.services.cognitoidentityprovider.model.UserNotConfirmedException;
 import com.amazonaws.services.cognitoidentityprovider.model.UserNotFoundException;
 import com.amazonaws.services.cognitoidentityprovider.model.UsernameExistsException;
-import com.example.amanda.howler.aws.AWSHelper;
-import com.example.amanda.howler.aws.CKEmail;
+import com.howlersafe.howler.R;
+import com.howlersafe.howler.aws.AWSHelper;
 
-import org.w3c.dom.Text;
 
 public class LoginActivity extends AppCompatActivity implements OnClickListener {
 
-    // in arguments
+    public CustomPagerAdapter mCustomPagerAdapter;
+    public ViewPager mViewPager;
 
-    // constants
+    int[] mResources = {
+            R.drawable.first,
+            R.drawable.second,
+            R.drawable.third
+    };
 
     // control variables
     private AWSHelper mAWSHelper;
@@ -58,13 +68,14 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
     private AuthenticationHandler mAuthenticationHandler;
 
     // UI variables
-    Button signInWithFacebookButton;
+//    Button signInWithFacebookButton;
 
     //   SignIn
     LinearLayout signInInputsLinearLayout;
     EditText signInUserEditText, signInPasswordEditText;
     RelativeLayout signInButtonsRelativeLayout;
     Button forgotPasswordButton, signUpModeButton, signInButton;
+    ImageView rightScrollArrow, leftScrollArrow;
 
     //   SignUp
     ScrollView signUpScrollView;
@@ -95,6 +106,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         // variables initialization
         mAWSHelper = new AWSHelper();
 
+        //Carousel
+        mCustomPagerAdapter = new CustomPagerAdapter(this);
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(mCustomPagerAdapter);
+
         // assigning UI variables
 //        signInWithFacebookButton = (Button) findViewById(R.id.signInWithFacebookButton);
 
@@ -106,6 +122,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         forgotPasswordButton = (Button) findViewById(R.id.forgotPasswordButton);
         signUpModeButton = (Button) findViewById(R.id.signUpModeButton);
         signInButton = (Button) findViewById(R.id.signInButton);
+        rightScrollArrow = findViewById(R.id.rightScrollArrow);
+        leftScrollArrow = findViewById(R.id.leftScrollArrow);
 
         //   SignUp
         signUpScrollView = (ScrollView) findViewById(R.id.signUpScrollView);
@@ -366,19 +384,25 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
 
             signInInputsLinearLayout.setVisibility(View.VISIBLE);
             signInButtonsRelativeLayout.setVisibility(View.VISIBLE);
+            mViewPager.setVisibility(View.VISIBLE);
+            rightScrollArrow.setVisibility(View.VISIBLE);
+            leftScrollArrow.setVisibility(View.VISIBLE);
 //            signInWithFacebookButton.setVisibility(View.VISIBLE);
         } else {
             signInUserEditText.setText("");
             signInPasswordEditText.setText("");
             signInInputsLinearLayout.setVisibility(View.GONE);
             signInButtonsRelativeLayout.setVisibility(View.GONE);
+            mViewPager.setVisibility(View.GONE);
+            rightScrollArrow.setVisibility(View.GONE);
+            leftScrollArrow.setVisibility(View.GONE);
         }
     }
 
     private void showSignUpUI(boolean show) {
         if (show) {
             showSignInUI(false);
-//            showConfirmationUI(false);
+            showConfirmationUI(false);
             showForgotPasswordUI(false);
             signUpScrollView.setVisibility(View.VISIBLE);
             signUpInputsLinearLayout.setVisibility(View.VISIBLE);
@@ -569,5 +593,46 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
         mCognitoUser.resendConfirmationCodeInBackground(verificationHandler);
     }
 
+    class CustomPagerAdapter extends PagerAdapter {
+
+        Context mContext;
+        LayoutInflater mLayoutInflater;
+
+        public CustomPagerAdapter(Context context) {
+            mContext = context;
+            mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return mResources.length;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == ((LinearLayout) object);
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
+
+            ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            imageView.setImageResource(mResources[position]);
+
+            container.addView(itemView);
+
+            return itemView;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView((LinearLayout) object);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+    }
 
 }

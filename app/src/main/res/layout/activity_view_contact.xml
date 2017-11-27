@@ -4,40 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/howler_grey"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.ViewContact">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.ViewContact">
 
     <TextView
         android:id="@+id/contactName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name"
+        android:text="@string/name"
+        android:textColor="@color/ic_launcher_background"
         android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/contactNumber"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/contactName"
-        android:layout_marginTop="@dimen/main_padding"
-        android:text="Number"
-        android:textSize="24sp" />
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/deleteContactButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_weight="0.2"
+            app:srcCompat="@drawable/ic_local_phone_white_24dp"
+            android:contentDescription="@string/logo" />
 
-    <ImageButton
+        <TextView
+            android:id="@+id/contactNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/number"
+            android:textColor="@color/ic_launcher_background"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
         android:id="@+id/editContactButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_edit_white_24dp" />
+
 </RelativeLayout>

@@ -1,31 +1,27 @@
-package com.example.amanda.howler;
+package com.howlersafe.howler;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.amanda.howler.R;
-import com.example.amanda.howler.database.Contact;
-import com.example.amanda.howler.database.DatabaseHelper;
-
-import org.w3c.dom.Text;
-
+import com.howlersafe.howler.R;
+import com.howlersafe.howler.database.Contact;
+import com.howlersafe.howler.database.DatabaseHelper;
 import java.util.List;
 
 public class ViewContact extends AppCompatActivity implements View.OnClickListener {
 
-    public String currentContactName;
+    //Widget declarations
     public TextView contactName;
     public TextView contactNumber;
-    public ImageButton deleteContactButton;
-    public ImageButton editContactButton;
+    public FloatingActionButton editContactButton;
+    //Variable declarations
+    public String currentContactName;
     public DatabaseHelper db;
     public Contact thisContact;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +29,11 @@ public class ViewContact extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_view_contact);
 
         //Get widget references
-        contactName = (TextView) findViewById(R.id.contactName);
-        contactNumber = (TextView) findViewById(R.id.contactNumber);
-        deleteContactButton = (ImageButton) findViewById(R.id.deleteContactButton);
-        editContactButton = (ImageButton) findViewById(R.id.editContactButton);
+        contactName = findViewById(R.id.contactName);
+        contactNumber = findViewById(R.id.contactNumber);
+        editContactButton = findViewById(R.id.editContactButton);
 
         //Listeners
-        deleteContactButton.setOnClickListener(this);
         editContactButton.setOnClickListener(this);
 
         //Get passed contact
@@ -58,7 +52,11 @@ public class ViewContact extends AppCompatActivity implements View.OnClickListen
         }
 
         contactName.setText(thisContact.getName());
-        contactNumber.setText(thisContact.getPhoneNumber());
+        String subString1 = thisContact.getPhoneNumber().substring(2, 5);
+        String subString2 = thisContact.getPhoneNumber().substring(5, 8);
+        String subString3 = thisContact.getPhoneNumber().substring(8);
+        String phone = "+1 (" + subString1 + ") " + subString2 + "-" + subString3;
+        contactNumber.setText(phone);
 
 
     }
@@ -66,13 +64,15 @@ public class ViewContact extends AppCompatActivity implements View.OnClickListen
     //OnClick functions
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.deleteContactButton:
-                db.deleteContact(thisContact);
-                Intent i = new Intent(getApplicationContext(), ContactList.class);
+            case R.id.editContactButton:
+                Intent i = new Intent(getApplicationContext(), EditContact.class);
+                i.putExtra("CONTACT_NAME", currentContactName);
                 startActivity(i);
                 break;
-            case R.id.editContactButton:
-                break;
         }
+    }
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(), ContactList.class);
+        startActivity(i);
     }
 }

@@ -4,13 +4,15 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.example.amanda.howler"
+        applicationId "com.howlersafe.howler"
         minSdkVersion 19
         targetSdkVersion 26
+        //update for each upload
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -42,4 +44,6 @@ dependencies {
     compile 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.3'
 
     compile 'com.amazonaws:aws-android-sdk-sns:2.2.+'
+
+    compile 'mobi.upod:time-duration-picker:1.1.3'
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.amanda.howler">
+    package="com.howlersafe.howler">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
-        android:name=".Application"
+        android:name="com.howlersafe.howler.Application"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,29 +20,44 @@
             android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
             android:enabled="true" />
 
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".TrackingTimer"></activity>
-        <activity android:name=".TrackingFinished" />
+        <activity android:name="com.howlersafe.howler.MainActivity" />
+
+        <activity android:name="com.howlersafe.howler.TrackingTimer"
+            android:label="Tracking"/>
+
+        <activity android:name="com.howlersafe.howler.TrackingFinished"
+            android:label="Tracking Finished"
+            android:parentActivityName="com.howlersafe.howler.MainActivity" />
+
         <activity
-            android:name=".ContactList"
-            android:label="Contact List"
-            android:parentActivityName=".MainActivity" />
+            android:name="com.howlersafe.howler.ContactList"
+            android:label="Contacts"
+            android:parentActivityName="com.howlersafe.howler.MainActivity" />
+
         <activity
-            android:name=".AddContact"
+            android:name="com.howlersafe.howler.AddContact"
             android:label="Add a Contact"
-            android:parentActivityName=".ContactList" />
+            android:parentActivityName="com.howlersafe.howler.ContactList" />
+
         <activity
-            android:name=".ViewContact"
+            android:name="com.howlersafe.howler.ViewContact"
             android:label="View Contact"
-            android:parentActivityName=".ContactList"></activity>
-        <activity android:name=".SplashActivity">
+            android:parentActivityName="com.howlersafe.howler.ContactList" />
+
+        <activity
+            android:name="com.howlersafe.howler.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
+
+        <activity android:name="com.howlersafe.howler.LoginActivity" />
+
+        <activity android:name="com.howlersafe.howler.EditContact"
+            android:label="Edit Contact"
+            android:parentActivityName="com.howlersafe.howler.ContactList" />
     </application>
 
 </manifest>

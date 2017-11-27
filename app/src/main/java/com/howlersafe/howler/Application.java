@@ -1,4 +1,4 @@
-package com.example.amanda.howler;
+package com.howlersafe.howler;
 
 import android.content.Context;
 import android.support.multidex.MultiDexApplication;

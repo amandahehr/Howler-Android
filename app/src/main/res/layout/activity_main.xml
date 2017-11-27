@@ -2,191 +2,219 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     android:padding="@dimen/main_padding"
-    tools:context="com.example.amanda.howler.MainActivity">
+    tools:context="com.example.amanda.howler.com.howlersafe.howler.MainActivity">
 
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addContactsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/emergencyContactSelected"
+        app:srcCompat="@drawable/add_contact" />
 
     <TextView
         android:id="@+id/addContactsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="@string/add_contacts"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_marginTop="15dp"
+        android:text="@string/emergency_contact"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="14sp" />
 
-    <LinearLayout
-        android:id="@+id/addContactLayout"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/emergencyContactSelected"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/addContactsLabel"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/emergencyContactSelected"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_below="@+id/addContactsLabel"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="@string/contact_prompt"
-            android:textSize="18sp" />
-
-        <ImageButton
-            android:id="@+id/addContactsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/addContactsLabel"
-            android:layout_toRightOf="@+id/addContactsLabel"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/ic_input_add" />
-
-    </LinearLayout>
+        android:background="@color/transparent"
+        android:padding="0dp"
+        android:text="@string/select_emergency_contact"
+        android:textAllCaps="false"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/underline"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/addContactLayout"
-        android:layout_weight="1"
-        android:background="@color/colorAccent" />
+        android:layout_below="@+id/emergencyContactSelected"
+        android:background="@android:color/background_light" />
 
     <TextView
         android:id="@+id/startLocationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/addContactLayout"
-        android:layout_marginTop="@dimen/main_padding"
+        android:layout_below="@+id/underline"
+        android:layout_marginTop="15dp"
         android:text="@string/start_location"
-        android:textSize="@dimen/label_text_size" />
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/startLocationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addContactLayout"
-        android:layout_alignStart="@+id/addContactLayout"
         android:layout_below="@+id/startLocationLabel"
+        android:backgroundTint="@android:color/background_light"
         android:ems="10"
         android:hint="@string/enter_start_location"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/endLocationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/startLocationLabel"
         android:layout_alignStart="@+id/startLocationLabel"
         android:layout_below="@+id/startLocationEditText"
-        android:layout_marginTop="@dimen/main_padding"
-        android:text="@string/end_location_label"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_marginTop="15dp"
+        android:text="@string/end_location"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/endLocationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/startLocationEditText"
         android:layout_alignStart="@+id/startLocationEditText"
         android:layout_below="@+id/endLocationLabel"
+        android:backgroundTint="@android:color/background_light"
         android:ems="10"
         android:hint="@string/enter_end_location"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/timerLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/endLocationLabel"
         android:layout_alignStart="@+id/endLocationLabel"
         android:layout_below="@+id/endLocationEditText"
-        android:layout_marginTop="@dimen/main_padding"
-        android:text="@string/time_label"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_marginTop="15dp"
+        android:text="@string/estimated_travel_time"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textSize="14sp" />
 
-    <EditText
-        android:id="@+id/hourEditText"
-        android:layout_width="@dimen/timer_input_width"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/endLocationEditText"
-        android:layout_alignStart="@+id/endLocationEditText"
-        android:layout_below="@+id/timerLabel"
-        android:ems="10"
-        android:hint="@string/zero"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/hourLabel"
+    <Button
+        android:id="@+id/timerPopupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/hourEditText"
-        android:layout_alignTop="@+id/hourEditText"
-        android:layout_below="@+id/timerLabel"
-        android:layout_toRightOf="@+id/hourEditText"
-        android:gravity="center_vertical"
-        android:text="@string/hours"
-        android:textAlignment="center"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_alignEnd="@+id/timerLabelLayoutRL"
+        android:layout_alignStart="@+id/timerLabelLayoutRL"
+        android:layout_alignTop="@+id/timerLabelLayoutRL"
+        android:background="@color/transparent" />
 
-    <TextView
-        android:id="@+id/colon1"
+    <RelativeLayout
+        android:id="@+id/timerLabelLayoutRL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/hourEditText"
-        android:layout_alignTop="@+id/hourEditText"
-        android:layout_below="@+id/timerLabel"
-        android:layout_marginLeft="@dimen/main_padding"
-        android:layout_marginRight="@dimen/main_padding"
-        android:layout_toEndOf="@+id/hourLabel"
-        android:layout_toRightOf="@+id/hourLabel"
-        android:gravity="center_vertical"
-        android:text="@string/colon"
-        android:textColor="@android:color/black"
-        android:textSize="@dimen/label_text_size" />
+        android:layout_below="@+id/timerLabel">
 
-    <EditText
-        android:id="@+id/minuteEditText"
-        android:layout_width="@dimen/timer_input_width"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/timerLabel"
-        android:layout_toRightOf="@+id/colon1"
-        android:ems="10"
-        android:hint="@string/zero"
-        android:inputType="number"
-        android:maxLength="2"
-        android:textAlignment="center" />
+        <TextView
+            android:id="@+id/hourEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/_00"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textSize="@dimen/label_text_size" />
 
-    <TextView
-        android:id="@+id/minutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/hourEditText"
-        android:layout_alignTop="@+id/hourEditText"
-        android:layout_below="@+id/timerLabel"
-        android:layout_toEndOf="@+id/minuteEditText"
-        android:layout_toRightOf="@+id/minuteEditText"
-        android:gravity="center_vertical"
-        android:text="@string/minutes"
-        android:textSize="@dimen/label_text_size" />
+        <TextView
+            android:id="@+id/hourLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/hourEditText"
+            android:layout_alignTop="@+id/hourEditText"
+            android:layout_toEndOf="@+id/hourEditText"
+            android:gravity="center_vertical"
+            android:text="@string/hours"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/colon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/hourEditText"
+            android:layout_alignTop="@+id/hourEditText"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/hourLabel"
+            android:gravity="center_vertical"
+            android:text="@string/colon"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/minuteEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/colon1"
+            android:gravity="center_vertical"
+            android:text="@string/_00"
+            android:textAlignment="center"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textSize="@dimen/label_text_size" />
+
+        <TextView
+            android:id="@+id/minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/hourEditText"
+            android:layout_alignTop="@+id/hourEditText"
+            android:layout_toEndOf="@+id/minuteEditText"
+            android:gravity="center_vertical"
+            android:text="@string/minutes"
+            android:textColor="@android:color/background_light"
+            android:textColorHint="@android:color/background_light"
+            android:textSize="@dimen/label_text_size" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/startTrackingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentBottom="false"
+        android:layout_below="@+id/timerLabelLayoutRL"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/button"
-        android:padding="5dp"
+        android:elevation="2dp"
+        android:padding="10dp"
         android:shadowColor="@android:color/background_dark"
-        android:text="@string/start_tracking"
+        android:text="@string/start_timer"
+        android:textAllCaps="false"
         android:textColor="@android:color/background_light"
-        android:textSize="24sp" />
+        android:textColorHint="@android:color/background_light"
+        android:textSize="20sp" />
 
 </RelativeLayout>
 
